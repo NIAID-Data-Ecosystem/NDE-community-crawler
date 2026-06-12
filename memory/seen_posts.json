@@ -18,5 +18,65 @@
     "status": "skipped",
     "issue_url": null,
     "notes": "Plant species (tobacco), not infectious disease. NDE not relevant."
+  },
+  {
+    "url": "https://bioinformatics.stackexchange.com/questions/23067/database-like-cellxgene-for-well-annotated-atlas",
+    "title": "Database like Cellxgene for well-annotated atlas",
+    "forum": "Bioinformatics Stack Exchange",
+    "date_seen": "2026-06-12",
+    "relevance_score": 5,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": "Asks about databases for annotated scRNA-seq atlas. Not infectious disease specific. Below threshold."
+  },
+  {
+    "url": "https://bioinformatics.stackexchange.com/questions/23661/would-it-improve-metagenomic-bin-quality-to-map-it-back-on-the-metagenome",
+    "title": "Would it improve metagenomic bin quality to map it back on the metagenome?",
+    "forum": "Bioinformatics Stack Exchange",
+    "date_seen": "2026-06-12",
+    "relevance_score": 2,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": "Methods question about metagenomics assembly, not dataset discovery."
+  },
+  {
+    "url": "https://bioinformatics.stackexchange.com/questions/23642/adding-2-new-transcripts-to-an-existing-gene-in-a-gtf-file",
+    "title": "Adding 2 new transcripts (to an existing gene) in a GTF file",
+    "forum": "Bioinformatics Stack Exchange",
+    "date_seen": "2026-06-12",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": "File format/annotation question, not relevant."
+  },
+  {
+    "url": "https://bioinformatics.stackexchange.com/questions/23560/normalisation-of-geo-mirna-microarray-data",
+    "title": "Normalisation of GEO miRNA microarray data",
+    "forum": "Bioinformatics Stack Exchange",
+    "date_seen": "2026-06-12",
+    "relevance_score": 2,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": "Normalization methods question, not dataset discovery."
+  },
+  {
+    "url": "https://bioinformatics.stackexchange.com/questions/23200/merge-rnaseq-and-microarray-count-datasets",
+    "title": "Merge RNAseq and Microarray count datasets",
+    "forum": "Bioinformatics Stack Exchange",
+    "date_seen": "2026-06-12",
+    "relevance_score": 2,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": "Data integration methods question, not dataset discovery."
+  },
+  {
+    "url": "https://bioinformatics.stackexchange.com/questions/22930/how-do-i-compare-multiple-cancer-datasets-to-find-the-common-and-unique-genes-an",
+    "title": "How do I compare multiple cancer datasets to find the common and unique genes",
+    "forum": "Bioinformatics Stack Exchange",
+    "date_seen": "2026-06-12",
+    "relevance_score": 3,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": "Cancer focus, not infectious disease. NDE not relevant."
   }
 ]
