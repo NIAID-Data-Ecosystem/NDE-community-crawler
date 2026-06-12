@@ -1,0 +1,34 @@
+{
+  "approved": [
+    {
+      "name": "Biostars",
+      "url": "https://www.biostars.org",
+      "api": "https://www.biostars.org/api/post/",
+      "notes": "Broad bioinformatics Q&A. REST API available.",
+      "added_by": "human"
+    },
+    {
+      "name": "SEQanswers",
+      "url": "http://seqanswers.com",
+      "api": null,
+      "notes": "Sequencing-focused forum. Scraping required.",
+      "added_by": "human"
+    },
+    {
+      "name": "Reddit r/bioinformatics",
+      "url": "https://www.reddit.com/r/bioinformatics",
+      "api": "https://www.reddit.com/r/bioinformatics/search.json",
+      "notes": "General bioinformatics community. Reddit JSON API, no auth required for read.",
+      "added_by": "human"
+    },
+    {
+      "name": "Bioconductor Support",
+      "url": "https://support.bioconductor.org",
+      "api": null,
+      "notes": "R/Bioconductor Q&A. Active infectious disease and omics discussions.",
+      "added_by": "human"
+    }
+  ],
+  "pending": [],
+  "blocked": []
+}
