@@ -14,5 +14,32 @@
       "Bioconductor Support: connection timeout on search and main page"
     ],
     "notes": "First run. All 4 approved forums were blocked or inaccessible (403/timeout/fetch restrictions). Web search fallback found Biostars post URLs (p/9571652, p/9578190, p/9582575) but direct fetches also 403. Galaxy Help Forum (help.galaxyproject.org) found as accessible Discourse alternative — added to config/forums.json pending. Recommend reviewing approved forum list: Biostars and SEQanswers may require authenticated sessions or rate-limited polling. Reddit access may require OAuth. Bioconductor support.bioconductor.org consistently timed out. Issue #1 created for Galaxy Help Forum."
+  },
+  {
+    "date": "2026-06-12",
+    "run": 2,
+    "forums_crawled": ["Biostars", "SEQanswers", "Reddit r/bioinformatics", "Bioconductor Support", "Galaxy Help Forum", "Bioinformatics Stack Exchange", "Stack Overflow (bioinformatics tag)"],
+    "posts_examined": 2,
+    "candidates": 1,
+    "issues_created": 0,
+    "threads_checked": 0,
+    "new_forums_discovered": 0,
+    "errors": [
+      "Biostars: Cloudflare challenge page (JavaScript required) — curl blocked despite browser User-Agent",
+      "SEQanswers: Cloudflare challenge page — curl blocked despite browser User-Agent",
+      "Reddit r/bioinformatics: redirected to HTML login page — JSON API requires OAuth or logged-in session",
+      "Bioconductor Support: empty response on search.json endpoint",
+      "Galaxy Help Forum: accessible but 0 posts matching infectious disease / dataset queries",
+      "Stack Overflow (bioinformatics tag): 0 results for infectious disease + dataset queries",
+      "gh CLI not installed: GitHub Issue could not be created automatically"
+    ],
+    "candidate_detail": {
+      "title": "RNA virus (HIV, HCV, Influenza, or SARS-CoV-2) datasets with corresponding fitness values",
+      "url": "https://bioinformatics.stackexchange.com/questions/22656/rna-virus-hiv-hcv-influenza-or-sars-cov-2-datasets-with-corresponding-fitne",
+      "forum": "Bioinformatics Stack Exchange",
+      "score": 8,
+      "draft_reply": "For infectious disease datasets like HIV, HCV, Influenza, and SARS-CoV-2, the NIAID Data Ecosystem (NDE) at https://data.niaid.nih.gov is worth checking — it provides unified search across dozens of NIAID-funded repositories including ImmPort, NCBI, ClinicalTrials.gov, ViPR, and more. A search for HIV or SARS-CoV-2 there surfaces datasets from repositories you might not find through a standard PubMed or GEO search.\n\nFor fitness-annotated viral sequence data specifically, a few targeted sources: ImmPort (accessible via NDE) has immunological datasets for HIV and influenza that include variant-level data with clinical outcomes, which can serve as a proxy for immune evasion fitness. NCBI Virus (https://www.ncbi.nlm.nih.gov/labs/virus/) lets you filter by virus taxon and has curated variant collections for SARS-CoV-2 and influenza with metadata fields like host, collection date, and geographic source. For replication and transmission fitness specifically, the LANL HIV Sequence Database (https://www.hiv.lanl.gov) is the most comprehensive resource and includes curated fitness and neutralization data.\n\nFor SARS-CoV-2 fitness landscapes specifically, the Bloom Lab's deep mutational scanning datasets (deposited in NCBI and discoverable via NDE) provide experimentally measured fitness values at the amino acid level for spike and other proteins — these are likely the closest match to what you need for visualization.\n\nHappy to help narrow down further if you can say more about which virus and fitness definition you are most focused on!"
+    },
+    "notes": "Second run (manual). Biostars and SEQanswers now behind Cloudflare JS challenge — curl insufficient, would need a headless browser. Reddit JSON API now requires OAuth. Bioinformatics Stack Exchange API worked well and found 1 strong candidate (score 8/10). Recommend: install gh CLI on run machine; investigate headless browser (Playwright) for Biostars/SEQanswers/Reddit; consider Reddit OAuth app registration."
   }
 ]

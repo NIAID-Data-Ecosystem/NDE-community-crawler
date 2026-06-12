@@ -4,41 +4,57 @@
       "name": "Biostars",
       "url": "https://www.biostars.org",
       "api": "https://www.biostars.org/api/post/",
-      "notes": "Broad bioinformatics Q&A. REST API available.",
+      "notes": "Broad bioinformatics Q&A. REST API available. Use curl with browser-like User-Agent to avoid 403.",
       "added_by": "human"
     },
     {
       "name": "SEQanswers",
-      "url": "http://seqanswers.com",
+      "url": "https://seqanswers.com",
       "api": null,
-      "notes": "Sequencing-focused forum. Scraping required.",
+      "notes": "Sequencing-focused forum. Scraping required with full browser User-Agent.",
       "added_by": "human"
     },
     {
       "name": "Reddit r/bioinformatics",
       "url": "https://www.reddit.com/r/bioinformatics",
       "api": "https://www.reddit.com/r/bioinformatics/search.json",
-      "notes": "General bioinformatics community. Reddit JSON API, no auth required for read.",
+      "notes": "General bioinformatics community. Reddit JSON API requires a descriptive User-Agent per Reddit API rules. No OAuth needed for read-only access.",
       "added_by": "human"
     },
     {
       "name": "Bioconductor Support",
       "url": "https://support.bioconductor.org",
-      "api": null,
-      "notes": "R/Bioconductor Q&A. Active infectious disease and omics discussions.",
+      "api": "https://support.bioconductor.org/search.json",
+      "notes": "R/Bioconductor Q&A. Discourse-based — use JSON API endpoints directly with curl rather than WebFetch.",
       "added_by": "human"
-    }
-  ],
-  "pending": [
+    },
     {
       "name": "Galaxy Help Forum",
       "url": "https://help.galaxyproject.org",
       "api": "https://help.galaxyproject.org/latest.json",
-      "notes": "Public Discourse forum for Galaxy Project users. Researchers ask about data sources, public datasets, and analysis workflows. Accessible via HTTP with JSON API.",
+      "notes": "Public Discourse forum for Galaxy Project users. Researchers ask about data sources, public datasets, and analysis workflows. Confirmed accessible during 2026-06-12 run when all other forums were blocked.",
       "added_by": "agent",
-      "date": "2026-06-12",
-      "rationale": "Crawled on 2026-06-12 run; forum was accessible and active (~50+ new topics/week) when all 4 approved forums were blocked (403/timeout). No relevant posts found in this crawl but forum size and topic breadth make it a candidate for future monitoring. GitHub issue: https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/1"
+      "date_added": "2026-06-12",
+      "date_approved": "2026-06-12",
+      "rationale": "Only forum accessible during first run (2026-06-12). Active ~50+ new topics/week. GitHub issue: https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/1"
+    },
+    {
+      "name": "Bioinformatics Stack Exchange",
+      "url": "https://bioinformatics.stackexchange.com",
+      "api": "https://api.stackexchange.com/2.3/questions?site=bioinformatics",
+      "notes": "Dedicated bioinformatics Q&A site. Stack Exchange API v2.3 requires no authentication for read access. High-quality questions with tagging (dataset, databases, ngs). Filter by tags: dataset, databases.",
+      "added_by": "human",
+      "date_added": "2026-06-12"
+    },
+    {
+      "name": "Stack Overflow (bioinformatics tag)",
+      "url": "https://stackoverflow.com/questions/tagged/bioinformatics",
+      "api": "https://api.stackexchange.com/2.3/questions?site=stackoverflow&tagged=bioinformatics",
+      "notes": "Large developer community. Bioinformatics+dataset tag intersection surfaces researchers seeking data access tools and APIs. Stack Exchange API v2.3, no auth required.",
+      "added_by": "human",
+      "date_added": "2026-06-12"
     }
   ],
+  "pending": [],
   "blocked": []
 }

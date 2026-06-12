@@ -47,14 +47,48 @@ The fetcher exit codes matter:
 
 **Per-forum crawl strategy:**
 
+Two access patterns are in play:
+- **No-auth API forums** (Stack Exchange family, Discourse forums) — use `curl` via Bash and parse JSON. Do NOT use WebFetch (no header support).
+- **Cloudflare-protected forums** (Biostars, SEQanswers) — use the Cloudflare-aware fetcher described above (`$NDE_FETCH`). This replaces the older API-key / "skip" approaches: the fetcher executes the Cloudflare JS challenge, so **no `BIOSTARS_API_KEY` is required** and **SEQanswers is no longer skipped**.
+
 - **Biostars** (Cloudflare) — Use the fetcher against the **JSON API** (cleaner + fewer requests than scraping):
-  - Recent post IDs for a date: `https://www.biostars.org/api/stats/date/YYYY/MM/DD/` (returns `new_posts` ID list)
+  - Recent post IDs for a date: `https://www.biostars.org/api/stats/date/YYYY/MM/DD/` (returns a `new_posts` ID list)
   - Post detail: `https://www.biostars.org/api/post/<id>/`
-  - Fetch with `$NDE_FETCH "<api-url>" --text` and parse the JSON from stdout.
-  - Pace with `sleep 7` between calls. **If you get exit code 2 (escalated), immediately switch to the fallback:** `WebSearch` for `site:biostars.org infectious disease dataset` (and similar queries) to surface candidate post URLs + snippets for this run. Note in the run log that Biostars used the search fallback.
-- **SEQanswers** (Cloudflare) — Use the fetcher on the forum index and recent threads: `$NDE_FETCH "https://seqanswers.com/" --html`, then fetch promising thread URLs the same way (with `sleep 7` between). On exit code 2, fall back to `WebSearch site:seqanswers.com`.
-- **Reddit r/bioinformatics** — Fetch `https://www.reddit.com/r/bioinformatics/search.json?q=dataset+infectious+disease&sort=new&t=week&limit=25` (try plain `WebFetch` first; if blocked, use the fetcher). Also try queries: "find dataset", "where can I download", "NIH data".
-- **Bioconductor Support** — `WebSearch site:support.bioconductor.org dataset infectious disease` for recent threads; fetch promising ones with `WebFetch` (not Cloudflare-protected).
+  - Fetch with `$NDE_FETCH "<api-url>" --text` and parse the JSON from stdout. Pace with `sleep 7` between calls.
+  - **On exit code 2 (Cloudflare escalated):** fall back to `WebSearch site:biostars.org infectious disease dataset` (and similar) to surface candidate URLs + snippets. Note in the run log that Biostars used the search fallback.
+  - (The legacy `scrapers/biostars.py` uses curl_cffi + an API key and is kept only as a fallback if the fetcher is unavailable.)
+
+- **SEQanswers** (Cloudflare) — Use the fetcher on the forum index and recent threads: `$NDE_FETCH "https://seqanswers.com/" --html`, then fetch promising thread URLs the same way (`sleep 7` between). On exit code 2, fall back to `WebSearch site:seqanswers.com`.
+
+- **Reddit r/bioinformatics** — Run `python scrapers/reddit.py` (uses OAuth if `REDDIT_CLIENT_ID`/`REDDIT_CLIENT_SECRET` are set in `.env`; see docs/setup.md). If credentials are missing or it returns blocked, fall back to the fetcher on `https://www.reddit.com/r/bioinformatics/search.json?q=dataset+infectious+disease&sort=new&t=week&limit=25`. Also try queries: "find dataset", "where can I download", "NIH data".
+
+- **Bioconductor Support** — Discourse-based. Run `python scrapers/bioconductor.py` (queries the Discourse JSON API). Falls back to `WebSearch site:support.bioconductor.org dataset infectious disease`.
+
+- **Galaxy Help Forum** — Discourse JSON API, no auth required:
+  ```bash
+  curl -s --max-time 15 \
+    -A "NDE-crawler/1.0 (research bot; +https://data.niaid.nih.gov)" \
+    -H "Accept: application/json" \
+    "https://help.galaxyproject.org/search.json?q=infectious+disease+dataset"
+  ```
+  Parse JSON: `posts[].blurb`, `grouped_search_result.post_ids` → construct topic URLs.
+
+- **Bioinformatics Stack Exchange** — Stack Exchange API, no auth required (this is the most productive source so far):
+  ```bash
+  FROMDATE=$(date -d '7 days ago' +%s 2>/dev/null || date -v-7d +%s 2>/dev/null || echo "0")
+  curl -s --max-time 15 \
+    -A "NDE-crawler/1.0 (research bot; +https://data.niaid.nih.gov)" \
+    "https://api.stackexchange.com/2.3/search/advanced?order=desc&sort=creation&q=infectious+disease+dataset&site=bioinformatics&pagesize=25&filter=withbody&fromdate=$FROMDATE"
+  ```
+  Response is gzip-compressed JSON. Parse: `items[].title`, `items[].link`, `items[].body`, `items[].creation_date`. Repeat with other query terms (e.g. `find dataset NIH pathogen`).
+
+- **Stack Overflow (bioinformatics tag)** — Stack Exchange API, no auth required:
+  ```bash
+  FROMDATE=$(date -d '7 days ago' +%s 2>/dev/null || date -v-7d +%s 2>/dev/null || echo "0")
+  curl -s --max-time 15 \
+    -A "NDE-crawler/1.0 (research bot; +https://data.niaid.nih.gov)" \
+    "https://api.stackexchange.com/2.3/search/advanced?order=desc&sort=creation&q=infectious+disease+dataset&tagged=bioinformatics&site=stackoverflow&pagesize=25&filter=withbody&fromdate=$FROMDATE"
+  ```
 
 Skip any post whose URL already appears in `memory/seen_posts.json`.
 

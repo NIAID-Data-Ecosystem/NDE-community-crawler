@@ -14,8 +14,17 @@ Each week, an agent crawls approved forums (Biostars, SEQanswers, Reddit r/bioin
 - `memory/run_log.json` — weekly run history
 - `prompts/weekly_run.md` — the full agent prompt executed each week
 - `agent/fetch.py` — Cloudflare-aware page fetcher (Playwright + stealth) for forums behind a Cloudflare JS challenge (Biostars, SEQanswers)
+- `scrapers/*.py` — per-forum scrapers for no-auth / credentialed APIs (Reddit OAuth, Bioconductor Discourse, legacy Biostars API-key fallback)
+- `.env.example` / `docs/setup.md` — optional credentials (Reddit OAuth, etc.) and how to obtain them
 - `setup.sh` / `requirements.txt` — one-time environment setup
 - `run.sh` — cron entrypoint (git pull → `xvfb-run claude --print`)
+
+## Two forum-access patterns
+
+- **No-auth APIs** (Stack Exchange / Stack Overflow, Galaxy & Bioconductor Discourse) — plain `curl`, no credentials. Stack Exchange has been the most productive source.
+- **Cloudflare-protected** (Biostars, SEQanswers) — go through `agent/fetch.py`, which clears the JS challenge with no API key. This supersedes the old "needs `BIOSTARS_API_KEY`" / "skip SEQanswers" approach; `scrapers/biostars.py` (curl_cffi + key) remains only as a fallback.
+
+Optional credentials live in `.env` (copy from `.env.example`) — currently just Reddit OAuth for higher-fidelity Reddit access.
 
 ## Setup (one-time, per machine)
 
