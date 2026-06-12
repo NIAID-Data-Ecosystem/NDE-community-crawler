@@ -1,2 +1,7 @@
 .logs/
 .env
+.venv/
+.pw-profile/
+.pw-profile-stealth/
+__pycache__/
+*.pyc

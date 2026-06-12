@@ -13,12 +13,41 @@ Each week, an agent crawls approved forums (Biostars, SEQanswers, Reddit r/bioin
 - `memory/thread_registry.json` — threads being tracked for followup replies
 - `memory/run_log.json` — weekly run history
 - `prompts/weekly_run.md` — the full agent prompt executed each week
+- `agent/fetch.py` — Cloudflare-aware page fetcher (Playwright + stealth) for forums behind a Cloudflare JS challenge (Biostars, SEQanswers)
+- `setup.sh` / `requirements.txt` — one-time environment setup
+- `run.sh` — cron entrypoint (git pull → `xvfb-run claude --print`)
+
+## Setup (one-time, per machine)
+
+```bash
+./setup.sh   # creates .venv, installs Playwright + Chromium, checks for xvfb
+```
+
+Needs `xvfb` (`sudo apt install xvfb`) because the fetcher runs a *headed* full
+Chromium to clear Cloudflare — headless Chromium gets detected.
 
 ## Running manually
 
 ```bash
-claude --print < prompts/weekly_run.md
+./run.sh
 ```
+
+`run.sh` wraps the agent in `xvfb-run` and exports `$NDE_PYTHON` / `$NDE_FETCH`
+so the prompt can call the fetcher.
+
+## The Cloudflare fetcher
+
+Biostars and SEQanswers sit behind a Cloudflare JS challenge that blocks
+`curl`/`WebFetch` (403 "Just a moment..."). `agent/fetch.py` drives a real
+browser to clear it:
+
+```bash
+xvfb-run -a .venv/bin/python agent/fetch.py "<url>" --text   # or --html
+```
+
+Exit codes: `0` ok, `2` Cloudflare escalated (back off / use search fallback),
+`3` navigation error. Cloudflare escalates under bursts, so the prompt paces
+requests (~7s apart) and falls back to `WebSearch site:<forum>` on exit 2.
 
 ## Managing forums
 

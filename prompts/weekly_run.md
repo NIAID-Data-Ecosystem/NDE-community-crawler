@@ -27,12 +27,34 @@ For each forum in `config.approved`, search for posts from the **last 7 days** r
 - Dataset discovery and metadata in bioinformatics
 - Multi-omics or clinical data integration for infectious/immune disease research
 
+### Fetching pages: which tool to use
+
+Some forums (Biostars, SEQanswers) sit behind a **Cloudflare JavaScript challenge** — plain `WebFetch`/`curl` get a 403 "Just a moment..." page. For those, use the Cloudflare-aware fetcher instead:
+
+```bash
+$NDE_PYTHON $NDE_FETCH "<url>" --text   # rendered text (default)
+$NDE_PYTHON $NDE_FETCH "<url>" --html   # raw HTML when you need structure
+```
+
+(If `$NDE_PYTHON`/`$NDE_FETCH` are unset, use `.venv/bin/python agent/fetch.py`. The script must run under a virtual display; `run.sh` already wraps the whole run in `xvfb-run`.)
+
+The fetcher exit codes matter:
+- **0** — success, content on stdout
+- **2** — Cloudflare *escalated* to an interactive challenge (usually from too many rapid requests). Stop hitting that forum this run and use the WebSearch fallback below.
+- **3** — navigation error/timeout — retry once, then skip.
+
+**Pacing (important):** Cloudflare escalates under bursts. Between requests to the SAME Cloudflare-protected forum, wait ~5–10 seconds (`sleep 7`) and keep total requests per forum modest (≤ ~15/run). For `candidate` posts you'll fetch full threads; for everything else prefer one listing/search page over many page fetches.
+
 **Per-forum crawl strategy:**
 
-- **Biostars** — Query the API: `https://www.biostars.org/api/post/?tags=dataset&limit=50&days=7` and also search for terms like "infectious disease dataset", "NIAID data", "find sequencing data". Parse JSON response.
-- **SEQanswers** — WebFetch the forum index and recent threads. If blocked (HTTP 403/429), log it and skip.
-- **Reddit r/bioinformatics** — Fetch `https://www.reddit.com/r/bioinformatics/search.json?q=dataset+infectious+disease&sort=new&t=week&limit=25` (add `User-Agent: NDE-crawler/1.0` header). Also try: "find dataset", "where can I download", "NIH data".
-- **Bioconductor Support** — WebSearch `site:support.bioconductor.org dataset infectious disease` for recent threads.
+- **Biostars** (Cloudflare) — Use the fetcher against the **JSON API** (cleaner + fewer requests than scraping):
+  - Recent post IDs for a date: `https://www.biostars.org/api/stats/date/YYYY/MM/DD/` (returns `new_posts` ID list)
+  - Post detail: `https://www.biostars.org/api/post/<id>/`
+  - Fetch with `$NDE_FETCH "<api-url>" --text` and parse the JSON from stdout.
+  - Pace with `sleep 7` between calls. **If you get exit code 2 (escalated), immediately switch to the fallback:** `WebSearch` for `site:biostars.org infectious disease dataset` (and similar queries) to surface candidate post URLs + snippets for this run. Note in the run log that Biostars used the search fallback.
+- **SEQanswers** (Cloudflare) — Use the fetcher on the forum index and recent threads: `$NDE_FETCH "https://seqanswers.com/" --html`, then fetch promising thread URLs the same way (with `sleep 7` between). On exit code 2, fall back to `WebSearch site:seqanswers.com`.
+- **Reddit r/bioinformatics** — Fetch `https://www.reddit.com/r/bioinformatics/search.json?q=dataset+infectious+disease&sort=new&t=week&limit=25` (try plain `WebFetch` first; if blocked, use the fetcher). Also try queries: "find dataset", "where can I download", "NIH data".
+- **Bioconductor Support** — `WebSearch site:support.bioconductor.org dataset infectious disease` for recent threads; fetch promising ones with `WebFetch` (not Cloudflare-protected).
 
 Skip any post whose URL already appears in `memory/seen_posts.json`.
 
@@ -41,7 +63,7 @@ Skip any post whose URL already appears in `memory/seen_posts.json`.
 ## Step 3 — Check tracked threads
 
 For each thread in `memory/thread_registry.json` with status `active`:
-1. Fetch the current thread page
+1. Fetch the current thread page (use the Cloudflare-aware fetcher for Biostars/SEQanswers URLs, `WebFetch` otherwise)
 2. Compare reply count or last activity to `last_checked`
 3. If new replies exist, summarize what was added
 
@@ -205,7 +227,7 @@ git -C /home/asu/Science/NDE-community-crawler push
 
 ## Error handling
 
-- **Forum blocked (403/429/CAPTCHA):** Log in `run_log.errors`, skip that forum, continue.
+- **Forum blocked (403/429/CAPTCHA):** For Cloudflare forums this shows up as fetcher **exit code 2** — use the WebSearch fallback for that forum, log it in `run_log.errors`, and continue. If even the fallback fails, skip that forum.
 - **GitHub Issue creation fails:** Log error, continue — do not abort the run.
 - **Memory file unreadable or malformed:** Treat as empty, log a warning, continue.
 - **No candidates found:** That's fine — commit the run log and finish.
