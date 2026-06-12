@@ -29,6 +29,16 @@
       "added_by": "human"
     }
   ],
-  "pending": [],
+  "pending": [
+    {
+      "name": "Galaxy Help Forum",
+      "url": "https://help.galaxyproject.org",
+      "api": "https://help.galaxyproject.org/latest.json",
+      "notes": "Public Discourse forum for Galaxy Project users. Researchers ask about data sources, public datasets, and analysis workflows. Accessible via HTTP with JSON API.",
+      "added_by": "agent",
+      "date": "2026-06-12",
+      "rationale": "Crawled on 2026-06-12 run; forum was accessible and active (~50+ new topics/week) when all 4 approved forums were blocked (403/timeout). No relevant posts found in this crawl but forum size and topic breadth make it a candidate for future monitoring. GitHub issue: https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/1"
+    }
+  ],
   "blocked": []
 }
