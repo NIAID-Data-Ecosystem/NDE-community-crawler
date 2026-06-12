@@ -5,9 +5,9 @@
     "forum": "Bioinformatics Stack Exchange",
     "date_seen": "2026-06-12",
     "relevance_score": 8,
-    "status": "issue_pending",
-    "issue_url": null,
-    "notes": "gh CLI not installed on run machine; issue must be created manually. Draft reply prepared in run log."
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/2",
+    "notes": "Issue created 2026-06-12 from this machine (gh available)."
   },
   {
     "url": "https://bioinformatics.stackexchange.com/questions/23384/finding-matched-rna-seq-and-ribo-seq-datasets-for-nicotiana-benthamiana-under-th",
