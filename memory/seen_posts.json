@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "url": "https://bioinformatics.stackexchange.com/questions/22656/rna-virus-hiv-hcv-influenza-or-sars-cov-2-datasets-with-corresponding-fitne",
+    "title": "RNA virus (HIV, HCV, Influenza, or SARS-CoV-2) datasets with corresponding fitness values",
+    "forum": "Bioinformatics Stack Exchange",
+    "date_seen": "2026-06-12",
+    "relevance_score": 8,
+    "status": "issue_pending",
+    "issue_url": null,
+    "notes": "gh CLI not installed on run machine; issue must be created manually. Draft reply prepared in run log."
+  },
+  {
+    "url": "https://bioinformatics.stackexchange.com/questions/23384/finding-matched-rna-seq-and-ribo-seq-datasets-for-nicotiana-benthamiana-under-th",
+    "title": "Finding matched RNA-seq and Ribo-seq datasets for Nicotiana benthamiana under the same condition",
+    "forum": "Bioinformatics Stack Exchange",
+    "date_seen": "2026-06-12",
+    "relevance_score": 3,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": "Plant species (tobacco), not infectious disease. NDE not relevant."
+  }
+]
