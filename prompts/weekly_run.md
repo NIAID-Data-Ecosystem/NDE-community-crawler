@@ -29,10 +29,87 @@ For each forum in `config.approved`, search for posts from the **last 7 days** r
 
 **Per-forum crawl strategy:**
 
-- **Biostars** — Query the API: `https://www.biostars.org/api/post/?tags=dataset&limit=50&days=7` and also search for terms like "infectious disease dataset", "NIAID data", "find sequencing data". Parse JSON response.
-- **SEQanswers** — WebFetch the forum index and recent threads. If blocked (HTTP 403/429), log it and skip.
-- **Reddit r/bioinformatics** — Fetch `https://www.reddit.com/r/bioinformatics/search.json?q=dataset+infectious+disease&sort=new&t=week&limit=25` (add `User-Agent: NDE-crawler/1.0` header). Also try: "find dataset", "where can I download", "NIH data".
-- **Bioconductor Support** — WebSearch `site:support.bioconductor.org dataset infectious disease` for recent threads.
+Use `curl` via Bash for all forum requests — do NOT use WebFetch. WebFetch does not support custom headers and will be blocked with HTTP 403. Always set a descriptive User-Agent.
+
+- **Biostars** — Use curl to query the REST API with multiple search terms. The API requires a browser-like User-Agent:
+  ```bash
+  curl -s --max-time 15 \
+    -A "Mozilla/5.0 (compatible; NDE-crawler/1.0; +https://data.niaid.nih.gov)" \
+    -H "Accept: application/json" \
+    "https://www.biostars.org/api/post/?type=question&limit=50&days=7&tag=dataset"
+  curl -s --max-time 15 \
+    -A "Mozilla/5.0 (compatible; NDE-crawler/1.0; +https://data.niaid.nih.gov)" \
+    -H "Accept: application/json" \
+    "https://www.biostars.org/api/post/?type=question&limit=50&days=7&tag=infectious+disease"
+  ```
+  Parse JSON: each result has `id`, `title`, `url`, `tag_val`, `creation_date`. Construct post URL as `https://www.biostars.org/p/<id>/`.
+
+- **SEQanswers** — Fetch the recent threads page with a full browser User-Agent:
+  ```bash
+  curl -s --max-time 15 \
+    -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+    -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
+    -H "Accept-Language: en-US,en;q=0.5" \
+    -L "https://seqanswers.com/forum/bioinformatics/bioinformatics-aa"
+  ```
+  Parse HTML for thread titles and links. If still blocked (403/429), log it and skip.
+
+- **Reddit r/bioinformatics** — Reddit requires a descriptive User-Agent per their API rules. Use OAuth-free JSON endpoints:
+  ```bash
+  curl -s --max-time 15 \
+    -A "NDE-crawler/1.0 (research bot monitoring dataset discovery questions; contact nde@niaid.nih.gov)" \
+    -H "Accept: application/json" \
+    "https://www.reddit.com/r/bioinformatics/search.json?q=dataset+infectious+disease&sort=new&t=week&limit=25&restrict_sr=1"
+  curl -s --max-time 15 \
+    -A "NDE-crawler/1.0 (research bot monitoring dataset discovery questions; contact nde@niaid.nih.gov)" \
+    -H "Accept: application/json" \
+    "https://www.reddit.com/r/bioinformatics/search.json?q=find+dataset+NIH&sort=new&t=week&limit=25&restrict_sr=1"
+  curl -s --max-time 15 \
+    -A "NDE-crawler/1.0 (research bot monitoring dataset discovery questions; contact nde@niaid.nih.gov)" \
+    -H "Accept: application/json" \
+    "https://www.reddit.com/r/bioinformatics/search.json?q=where+download+data+disease&sort=new&t=week&limit=25&restrict_sr=1"
+  ```
+  Parse JSON: `data.children[].data` contains `title`, `url`, `permalink`, `selftext`, `created_utc`.
+
+- **Bioconductor Support** — Use the Discourse JSON API directly:
+  ```bash
+  curl -s --max-time 15 \
+    -A "NDE-crawler/1.0 (research bot; +https://data.niaid.nih.gov)" \
+    -H "Accept: application/json" \
+    "https://support.bioconductor.org/search.json?q=infectious+disease+dataset"
+  curl -s --max-time 15 \
+    -A "NDE-crawler/1.0 (research bot; +https://data.niaid.nih.gov)" \
+    -H "Accept: application/json" \
+    "https://support.bioconductor.org/latest.json?category=&period=weekly"
+  ```
+  Parse JSON for recent topic titles, urls, and creation dates.
+
+- **Galaxy Help Forum** — Use the Discourse JSON API:
+  ```bash
+  curl -s --max-time 15 \
+    -A "NDE-crawler/1.0 (research bot; +https://data.niaid.nih.gov)" \
+    -H "Accept: application/json" \
+    "https://help.galaxyproject.org/search.json?q=infectious+disease+dataset"
+  curl -s --max-time 15 \
+    -A "NDE-crawler/1.0 (research bot; +https://data.niaid.nih.gov)" \
+    -H "Accept: application/json" \
+    "https://help.galaxyproject.org/latest.json?period=weekly"
+  ```
+
+- **Bioinformatics Stack Exchange** — Use the Stack Exchange API (no auth required for read):
+  ```bash
+  curl -s --max-time 15 \
+    -A "NDE-crawler/1.0 (research bot; +https://data.niaid.nih.gov)" \
+    "https://api.stackexchange.com/2.3/questions?order=desc&sort=creation&tagged=dataset&site=bioinformatics&pagesize=50&filter=withbody&fromdate=$(date -d '7 days ago' +%s 2>/dev/null || date -v-7d +%s)"
+  ```
+  Parse JSON: `items[].title`, `items[].link`, `items[].body`, `items[].creation_date`.
+
+- **Stack Overflow (bioinformatics tag)** — Use the Stack Exchange API:
+  ```bash
+  curl -s --max-time 15 \
+    -A "NDE-crawler/1.0 (research bot; +https://data.niaid.nih.gov)" \
+    "https://api.stackexchange.com/2.3/questions?order=desc&sort=creation&tagged=bioinformatics;dataset&site=stackoverflow&pagesize=25&filter=withbody&fromdate=$(date -d '7 days ago' +%s 2>/dev/null || date -v-7d +%s)"
+  ```
 
 Skip any post whose URL already appears in `memory/seen_posts.json`.
 
