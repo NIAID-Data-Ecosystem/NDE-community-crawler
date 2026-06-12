@@ -47,17 +47,14 @@ python scrapers/reddit.py
 
 ---
 
-## Biostars
+## Biostars & SEQanswers (Cloudflare)
 
-Biostars is behind Cloudflare and requires an API key to access programmatically.
+No credentials needed. Both sit behind a Cloudflare JS challenge, which the
+Playwright-based fetcher (`agent/fetch.py`) clears directly. Run `./setup.sh`
+to install Playwright + Chromium + xvfb, then test:
 
-1. Create a Biostars account at https://www.biostars.org
-2. Go to your profile → **API key** (or https://www.biostars.org/accounts/profile/)
-3. Copy the key into `.env` as `BIOSTARS_API_KEY`
-
-Test:
 ```bash
-python scrapers/biostars.py
+xvfb-run -a .venv/bin/python agent/fetch.py "https://seqanswers.com/" --text
 ```
 
 ---

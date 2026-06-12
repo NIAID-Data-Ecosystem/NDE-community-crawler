@@ -56,7 +56,6 @@ Two access patterns are in play:
   - Post detail: `https://www.biostars.org/api/post/<id>/`
   - Fetch with `$NDE_FETCH "<api-url>" --text` and parse the JSON from stdout. Pace with `sleep 7` between calls.
   - **On exit code 2 (Cloudflare escalated):** fall back to `WebSearch site:biostars.org infectious disease dataset` (and similar) to surface candidate URLs + snippets. Note in the run log that Biostars used the search fallback.
-  - (The legacy `scrapers/biostars.py` uses curl_cffi + an API key and is kept only as a fallback if the fetcher is unavailable.)
 
 - **SEQanswers** (Cloudflare) — Use the fetcher on the forum index and recent threads: `$NDE_FETCH "https://seqanswers.com/" --html`, then fetch promising thread URLs the same way (`sleep 7` between). On exit code 2, fall back to `WebSearch site:seqanswers.com`.
 
