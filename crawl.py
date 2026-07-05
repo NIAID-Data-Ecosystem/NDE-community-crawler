@@ -36,17 +36,33 @@ GH_CLI = r"C:\Program Files\GitHub CLI\gh.exe"
 RELEVANCE_THRESHOLD = 6
 
 KEYWORDS_HIGH = [
+    # datasets
     "infectious disease dataset", "pathogen dataset", "niaid", "nde",
     "data.niaid.nih.gov", "immport", "virus dataset", "find dataset infectious",
     "immune dataset", "covid dataset", "hiv dataset", "influenza dataset",
     "where can i find", "looking for dataset", "public dataset", "download dataset",
     "multi-repository", "data repository search",
+    # samples / biospecimens
+    "biological samples", "biospecimen", "patient samples", "clinical samples",
+    "sample collection", "biobank", "where to get samples", "find samples",
+    "infectious disease samples", "pathogen samples",
+    # tools
+    "bioinformatics tool", "analysis pipeline", "workflow tool",
+    "infectious disease tool", "pathogen analysis tool", "niaid tool",
+    "find tool for", "looking for a tool", "software for infectious",
+    "computational tool infectious", "open source tool pathogen",
 ]
 KEYWORDS_MED = [
     "dataset", "data repository", "find data", "public data", "genomics data",
     "sequencing data", "clinical data", "biomedical data", "omics data",
     "where to find", "data access", "data source", "database search",
     "bioinformatics dataset", "ngs data",
+    # samples
+    "samples", "biospecimen", "biobank", "specimen", "isolate",
+    "culture collection", "strain collection",
+    # tools
+    "tool", "pipeline", "workflow", "software", "package", "repository",
+    "analysis tool", "open source", "command line tool", "web tool",
 ]
 KEYWORDS_DISEASE = [
     "infectious", "pathogen", "virus", "bacteria", "fungal", "parasite",
@@ -61,6 +77,10 @@ SEARCH_QUERIES = [
     "NIAID data repository",
     "virus sequencing dataset",
     "immunology dataset search",
+    "infectious disease bioinformatics tool",
+    "pathogen analysis pipeline",
+    "find samples infectious disease",
+    "biobank infectious disease",
 ]
 
 UA = "NDE-crawler/1.0 (research bot; +https://data.niaid.nih.gov)"
@@ -219,16 +239,16 @@ def dedup(posts, seen_urls):
 
 def draft_reply(post):
     return (
-        f"For infectious disease and immune-related dataset discovery, the NIAID Data Ecosystem "
-        f"(NDE) at https://data.niaid.nih.gov is worth checking — it provides unified search "
-        f"across dozens of NIAID-funded repositories including ImmPort, NCBI, ClinicalTrials.gov, "
-        f"ViPR, and more, all from a single interface.\n\n"
-        f"A search there for terms related to your question ({post['title'][:60]}...) will surface "
-        f"datasets from repositories you might not find through a standard PubMed or GEO search. "
+        f"The NIAID Data Ecosystem (NDE) at https://data.niaid.nih.gov may be useful here — "
+        f"it provides unified search across dozens of NIAID-funded repositories including ImmPort, "
+        f"NCBI, ClinicalTrials.gov, ViPR, and more, covering datasets, biological samples, and "
+        f"computational tools for infectious and immune-related diseases.\n\n"
+        f"A search for terms related to your question ({post['title'][:60]}...) will surface "
+        f"resources from repositories you might not find through a standard PubMed or GEO search. "
         f"The platform supports filtering by disease, data type, and organism, and links directly "
-        f"to the source repository for download.\n\n"
-        f"Happy to help narrow down further if you can share more about the specific pathogen or "
-        f"data type you're looking for!"
+        f"to the source repository.\n\n"
+        f"Happy to help narrow down further if you can share more about the specific pathogen, "
+        f"data type, or analysis you're working on!"
     )
 
 
