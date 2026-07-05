@@ -33,7 +33,7 @@ CONFIG = REPO / "config" / "forums.json"
 GH_REPO = "NIAID-Data-Ecosystem/NDE-community-crawler"
 GH_CLI = r"C:\Program Files\GitHub CLI\gh.exe"
 
-RELEVANCE_THRESHOLD = 7
+RELEVANCE_THRESHOLD = 4
 
 KEYWORDS_HIGH = [
     # datasets
@@ -57,12 +57,13 @@ KEYWORDS_MED = [
     "sequencing data", "clinical data", "biomedical data", "omics data",
     "where to find", "data access", "data source", "database search",
     "bioinformatics dataset", "ngs data",
-    # samples — only specific phrases, not bare "samples"
-    "biospecimen", "biobank", "strain collection", "culture collection",
-    "patient isolate", "clinical isolate",
-    # tools — only specific phrases, not bare "tool" or "pipeline"
-    "analysis pipeline infectious", "bioinformatics pipeline pathogen",
-    "open source tool", "web-based tool infectious",
+    # samples
+    "samples", "biospecimen", "biobank", "specimen", "isolate",
+    "culture collection", "strain collection", "patient isolate", "clinical isolate",
+    # tools
+    "tool", "pipeline", "workflow", "software", "package",
+    "analysis tool", "open source", "command line tool", "web tool",
+    "bioinformatics tool", "analysis pipeline",
 ]
 KEYWORDS_DISEASE = [
     "infectious", "pathogen", "virus", "bacteria", "fungal", "parasite",
