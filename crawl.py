@@ -20,6 +20,12 @@ import urllib.parse
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv(Path(__file__).parent / ".env")
+except ImportError:
+    pass
+
 REPO = Path(__file__).parent
 MEMORY = REPO / "memory"
 CONFIG = REPO / "config" / "forums.json"
@@ -164,15 +170,22 @@ def crawl_galaxy():
 
 
 def crawl_reddit():
+    session_cookie = os.getenv("REDDIT_SESSION", "").strip()
+    headers = {"Accept": "application/json"}
+    if session_cookie:
+        headers["Cookie"] = f"reddit_session={session_cookie}"
+    else:
+        print("  Reddit: no REDDIT_SESSION in .env — requests may be blocked", file=sys.stderr)
+
     posts = []
     for query in SEARCH_QUERIES[:3]:
         url = (
             "https://www.reddit.com/r/bioinformatics/search.json"
-            f"?q={urllib.parse.quote_plus(query)}&sort=new&t=week&limit=25"
+            f"?q={urllib.parse.quote_plus(query)}&sort=new&t=week&limit=25&restrict_sr=1"
         )
-        raw = fetch(url, {"Accept": "application/json"})
-        if not raw or "reddit.com/login" in raw:
-            print("  Reddit: redirected to login — skipping (OAuth not configured)", file=sys.stderr)
+        raw = fetch(url, headers)
+        if not raw or '"kind": "Listing"' not in raw and "reddit.com/login" in raw:
+            print("  Reddit: blocked — check REDDIT_SESSION cookie in .env", file=sys.stderr)
             break
         try:
             data = json.loads(raw)
