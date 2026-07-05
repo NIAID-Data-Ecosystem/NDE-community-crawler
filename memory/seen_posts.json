@@ -78,5 +78,515 @@
     "status": "skipped",
     "issue_url": null,
     "notes": "Cancer focus, not infectious disease. NDE not relevant."
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/8925",
+    "title": "Hi @TTP TTP: It doesn't give me any other information besides \"unavailable\". You probably just need to change the dataty",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/42",
+    "title": "How to troubleshoot your work in Galaxy, and how to ask for help! :mag_right: Review your https://training.galaxyproject",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/12406",
+    "title": "Hi @Isa Fasta files have a specific format. This is an older FAQ but still has useful details. There are many other refe",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/10973",
+    "title": "HI @Heinrich_Gompf Two items: When you state jobs are failing with an \"out of memory error\", this is how to interpret th",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/11616",
+    "title": "Reference genomes at public Galaxy servers Human example → Homo Sapiens GRCh38 hg38 The version of hg38 hosted as a nati",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 3,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/14914",
+    "title": "Hi @Martyn The immediate issue is that the input collection is in a nested \"paired list\" shape. MultiQC is expecting a s",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/16245",
+    "title": "Welcome @raptor_007 This is happening with the input setting on the Kraken2 tool form? Like this? Screenshot 2025-09-08 ",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/16131",
+    "title": "Welcome @ducbiologygroup Hopefully I can help to explain! :slight_smile: It sounds like you have one condition and this ",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/12023",
+    "title": "Welcome, @Sutrisha_Kundu The jobs sound like they are queued. Leaving everything just as it is will be the fastest way t",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/16123",
+    "title": "Hey, that's great @Maria_Kamilari !! Ok, for workflows … Run through this tutorial. I know it seems tedious at the start",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/15720",
+    "title": ":speech_balloon: How to find NCBI Reference data? Q: Where can I find the URL links to a reference genome FASTA, annotat",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 5,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/16420",
+    "title": "Welcome @1112 Do you mean that you purged data but your usage quota did not immediately update? That is normal. The spac",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/13193",
+    "title": "Welcome, @swagat23 Large Scale Data Analysis at Public Galaxy servers The https://help.galaxyproject.org/docs UseGalaxy ",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/15254",
+    "title": "I've been trying to use RUVSeq ( Remove Unwanted Variation from RNA-seq data) through inputting Salmon files. I have sel",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/8931",
+    "title": "Hi, I am trying to download a large collection of BAM files through the command line. I have an API key, which is the la",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 2,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/3699",
+    "title": "Hi everyone, I am looking for a workflow to find new transcripts in scRNA-Seq datasets. Do you know what galaxy tools co",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 4,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/17711",
+    "title": "Hello again, Galaxyans! Long time no see… Bug on NCBI Datasets Genomes tool Seems like the - - force option broke the wr",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 2,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/1812",
+    "title": "Hi, I am running Ballgown on my local version of Galaxy with outputs from StringTie. While Running StringTie I had gener",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/12865",
+    "title": "Do you mean files stored on your computer? Yes, but test it on one file, just in case, especially if you use Windows. Fi",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/12362",
+    "title": "Hi @rizwan_rehman_rehimi Things to check Does your dataset contain a database metadata attribute? https://training.galax",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/16430",
+    "title": "Welcome @erdavenport Thanks for sharing all these details, and I think we'll be able to help! There are two similar tool",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 3,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/12051",
+    "title": "Hi @sdmoore Click on the pencil icon for your fasta dataset to find the function that will put a fasta index into your h",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 4,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/10494",
+    "title": "Welcome, @sdmoore Your account at http://UseGalaxy.org UseGalaxy.org has two histories that are deleted but not permanen",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/12591",
+    "title": "Hello @jmuser jmuser: I wonder whether and how the original order of data files and file numbers can be maintained when ",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 4,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/9966",
+    "title": "Welcome, @Zhen_Kai_Ngian The column set for the score column is not appropriate for files from MACS2. Expand your datase",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/8646",
+    "title": "Hi @Lukasz_Gajda Are you still having trouble? If so, it would be helpful for you to provide more information. If possib",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/7150",
+    "title": "It could be that you need to re-install the freebayes tool, see: https://github.com/galaxyproject/tools-iuc/issues/4270 ",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/3929",
+    "title": "Hey, I have been developing a tool on a local installation of Galaxy which keeps finishing and all 8 outputs turn red du",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/558",
+    "title": "Thanks for the clarification. The method below will work for any organism/identifier format. The Uniprot API tool will w",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 2,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/8835",
+    "title": "Hi I am new to Galaxy and bioinformatics and just going through the training. I can not find the ‘select first’ or the ‘",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/6381",
+    "title": "Hi @Corry_Mao Corry_Mao: learned the protocol of # Reference-based RNA-Seq data analysis, however, the name column is NA",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/447",
+    "title": "Thanks for clarifying the usage. X-axis = Gene Body Percentile (5' &gt; 3') – all transcript regions normalized at 100 Y",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/2424",
+    "title": "annabeldekker: I would expect the cleanup_dataset.py -6 argument to take care of these associative ‘links’, is that true",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 4,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/10457",
+    "title": "Great, thank you for posting the extra details. jennaj: Is the GTF formatted Ok? headers # would cause problems, so remo",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/1227",
+    "title": "I uploaded a paired-end SRR file using fastq-dump. The filetype says it is a fastqsanger.gz but when I try to run Trimmo",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/7419",
+    "title": "Danielle_Ireland: gzip: short write Hi @Danielle_Ireland This error probably means one of these is going on. The job ran",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/11929",
+    "title": "Dear Galaxy Team, is there a way to see where in the job queue my job currently is? Thanks and best, Matthias",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/4393",
+    "title": "The https://training.galaxyproject.org/training-material/topics/galaxy-interface/tutorials/upload-rules/tutorial.html Ru",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/17615",
+    "title": "Try using the extended history search to find only the datasets you'd want to hide again. Screenshot From 2026-03-27 10-",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 4,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/14951",
+    "title": "Hi Jenn, We have successfully run the pipeline. I am trying to find a new dataset to rerun it and show functional adapta",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/11450",
+    "title": "Hello, I`m recently analyzing ChIP-seq data for a specific TF derived from one control (Wt) and two ChIPed samples TF-GF",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/4317",
+    "title": "Dear all, I tried to run a GO Enrichment analysis with the datasets provided in the tutorial ( https://galaxyproject.git",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/5110",
+    "title": "HI @Anand_Mishra , firstly in order to perform the transcriptome assembly, it is necessary to select the samples corresp",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/605",
+    "title": "Hello, I have just run a Prokka analysis using SPAdes_contigs.fasta data and the analysis ran for about 24hrs before it ",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/1327",
+    "title": "Found a way to do this around the houses; uniprot ID mapping (creating a standalone dataset) followed by “find in refere",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/5788",
+    "title": "Hi there I’m trying to find documentation on how the “Rename dataset” action in Workflows works. Thus far Google and sea",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/16467",
+    "title": "Welcome @Mark_C Hopefully we can help! The idea is to always but pairs of reads together inside of a collection. Collect",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/2165",
+    "title": "Hi @RobHuffster31 The most common cause of unexpected results with this tool is a formatting problem with the tabular fo",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/2286",
+    "title": "Thank you for reaching out. Unfortunately, I have encountered the same problem again using the sub.sample tool. The outp",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/10651",
+    "title": "I have deleted History I no longer used but the Account storage usage quota doesn't change. I was not able to free up di",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/12871",
+    "title": "...the beginning, during the initial upload. I will try that. Does all this make sense to you? Thanks Daniel Dr. Daniel ",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-07-04",
+    "relevance_score": 5,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]

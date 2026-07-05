@@ -1,7 +1,12 @@
 [
   {
     "date": "2026-06-12",
-    "forums_crawled": ["Biostars", "SEQanswers", "Reddit r/bioinformatics", "Bioconductor Support"],
+    "forums_crawled": [
+      "Biostars",
+      "SEQanswers",
+      "Reddit r/bioinformatics",
+      "Bioconductor Support"
+    ],
     "posts_examined": 0,
     "candidates": 0,
     "issues_created": 0,
@@ -18,7 +23,15 @@
   {
     "date": "2026-06-12",
     "run": 2,
-    "forums_crawled": ["Biostars", "SEQanswers", "Reddit r/bioinformatics", "Bioconductor Support", "Galaxy Help Forum", "Bioinformatics Stack Exchange", "Stack Overflow (bioinformatics tag)"],
+    "forums_crawled": [
+      "Biostars",
+      "SEQanswers",
+      "Reddit r/bioinformatics",
+      "Bioconductor Support",
+      "Galaxy Help Forum",
+      "Bioinformatics Stack Exchange",
+      "Stack Overflow (bioinformatics tag)"
+    ],
     "posts_examined": 2,
     "candidates": 1,
     "issues_created": 0,
@@ -41,11 +54,15 @@
       "draft_reply": "For infectious disease datasets like HIV, HCV, Influenza, and SARS-CoV-2, the NIAID Data Ecosystem (NDE) at https://data.niaid.nih.gov is worth checking — it provides unified search across dozens of NIAID-funded repositories including ImmPort, NCBI, ClinicalTrials.gov, ViPR, and more. A search for HIV or SARS-CoV-2 there surfaces datasets from repositories you might not find through a standard PubMed or GEO search.\n\nFor fitness-annotated viral sequence data specifically, a few targeted sources: ImmPort (accessible via NDE) has immunological datasets for HIV and influenza that include variant-level data with clinical outcomes, which can serve as a proxy for immune evasion fitness. NCBI Virus (https://www.ncbi.nlm.nih.gov/labs/virus/) lets you filter by virus taxon and has curated variant collections for SARS-CoV-2 and influenza with metadata fields like host, collection date, and geographic source. For replication and transmission fitness specifically, the LANL HIV Sequence Database (https://www.hiv.lanl.gov) is the most comprehensive resource and includes curated fitness and neutralization data.\n\nFor SARS-CoV-2 fitness landscapes specifically, the Bloom Lab's deep mutational scanning datasets (deposited in NCBI and discoverable via NDE) provide experimentally measured fitness values at the amino acid level for spike and other proteins — these are likely the closest match to what you need for visualization.\n\nHappy to help narrow down further if you can say more about which virus and fitness definition you are most focused on!"
     },
     "notes": "Second run (manual). Biostars and SEQanswers now behind Cloudflare JS challenge — curl insufficient, would need a headless browser. Reddit JSON API now requires OAuth. Bioinformatics Stack Exchange API worked well and found 1 strong candidate (score 8/10). Recommend: install gh CLI on run machine; investigate headless browser (Playwright) for Biostars/SEQanswers/Reddit; consider Reddit OAuth app registration."
-  }
-  ,{
+  },
+  {
     "date": "2026-06-12",
     "run": 3,
-    "forums_crawled": ["Galaxy Help Forum", "Bioinformatics Stack Exchange", "Stack Overflow (bioinformatics tag)"],
+    "forums_crawled": [
+      "Galaxy Help Forum",
+      "Bioinformatics Stack Exchange",
+      "Stack Overflow (bioinformatics tag)"
+    ],
     "posts_examined": 26,
     "candidates": 0,
     "issues_created": 1,
@@ -58,5 +75,22 @@
       "Bioconductor: no results from any API endpoint"
     ],
     "notes": "gh CLI now authenticated. Retroactively created issue #3 for RNA virus fitness dataset post (score 8/10) from run 2. Crawled 26 posts from Bioinformatics SE across 6 search queries; no new candidates above threshold (score >= 6). Highest new score: 5/10 (Cellxgene atlas question, not infectious disease). Reddit OAuth still pending — user unable to create app via reddit.com/prefs/apps."
+  },
+  {
+    "date": "2026-07-04",
+    "run": 4,
+    "forums_crawled": [
+      "Bioinformatics Stack Exchange",
+      "Stack Overflow (bioinformatics tag)",
+      "Galaxy Help Forum",
+      "Reddit r/bioinformatics"
+    ],
+    "posts_examined": 51,
+    "candidates": 0,
+    "issues_created": 0,
+    "threads_checked": 0,
+    "new_forums_discovered": 0,
+    "errors": [],
+    "notes": "Manual run via crawl.py. 51 new posts, 0 candidates, 0 issues created."
   }
 ]
