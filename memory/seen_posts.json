@@ -588,5 +588,45 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1umsai3/pyscenic_how_to_tell_if_result_is_an_artifact_of/",
+    "title": "PySCENIC - How to Tell if Result is an Artifact of a Compositional Bias?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1um5q3e/ranking_seurat_markers_for_annotation_are/",
+    "title": "Ranking Seurat markers for annotation — are pct.1/pct.2 standard, or is log2FC + adjusted p-value enough",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1ulrriw/concerning_about_possible_paper_mill_for/",
+    "title": "Concerning about possible paper mill for genome-wide identification and characterization studies",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-04",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1ul0wrt/how_do_i_cluster_genes_with_similar_expression/",
+    "title": "How do I cluster genes with similar expression patterns along pseudotime?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-04",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
