@@ -628,5 +628,35 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1ursi8k/help_with_dataset_construction/",
+    "title": "help with dataset construction",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-11",
+    "relevance_score": 4,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/4",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1usckhw/anyone_familiar_with_syntheas_modules_i_need_to/",
+    "title": "Anyone familiar with Synthea's modules? I need to model a specific population",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-11",
+    "relevance_score": 3,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1uqxric/how_to_find_expression_information_of_refseq_rna/",
+    "title": "How to find expression information of Refseq RNA or mRNA of a specific gene?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-11",
+    "relevance_score": 2,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
