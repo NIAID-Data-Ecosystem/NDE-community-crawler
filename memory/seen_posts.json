@@ -658,5 +658,25 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1uv7ycb/just_embracing_my_fate_with_being_bad_at_single/",
+    "title": "Just embracing my fate with being bad at single cell analysis",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-13",
+    "relevance_score": 3,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1uut1ns/how_do_you_decide_on_masters_thesis_topic/",
+    "title": "How do you decide on masters thesis topic?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-13",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
