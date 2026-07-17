@@ -678,5 +678,45 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1uwgqdh/find_ground_truth_genefinding_for_prokaryotes/",
+    "title": "Find ground truth gene-finding for prokaryotes",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-17",
+    "relevance_score": 6,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/5",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1uvoob0/does_all_of_us_nih_bio_bank_have_hla_typing_data/",
+    "title": "Does All of Us NIH bio bank have HLA typing data?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-17",
+    "relevance_score": 9,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/6",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1uz558c/viewing_accession_numbers_of_histone_h3_in_mega12/",
+    "title": "Viewing accession numbers of histone H3 in Mega12?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-17",
+    "relevance_score": 3,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1uxlo2m/local_high_schooler_needs_help/",
+    "title": "local high schooler needs help",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-17",
+    "relevance_score": 3,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
