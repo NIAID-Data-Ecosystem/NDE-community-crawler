@@ -718,5 +718,25 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1v4t8nw/pyscenic_repressing_modules/",
+    "title": "PySCENIC - Repressing Modules",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-24",
+    "relevance_score": 4,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/7",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1v2li0g/batch_effect_correction/",
+    "title": "Batch effect correction",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-24",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
