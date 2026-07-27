@@ -738,5 +738,25 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1v5wkt8/control_and_disease_groups_from_different_data/",
+    "title": "Control and Disease Groups from different data sets — how to separate batch from biology?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-27",
+    "relevance_score": 6,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/8",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1v7mb35/genome_annotation_and_mining_help_is_my_pipeline/",
+    "title": "Genome Annotation and Mining help! Is my pipeline ridiculous?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-27",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
