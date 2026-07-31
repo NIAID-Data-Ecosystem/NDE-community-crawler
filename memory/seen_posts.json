@@ -758,5 +758,35 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1v97bja/beginner_friendly_how_to_check_expression_of_one/",
+    "title": "Beginner friendly - how to check expression of one gene of interest in snRNAseq data?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-31",
+    "relevance_score": 4,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/9",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1v9vp59/can_someone_please_help_me_out_with_this/",
+    "title": "Can someone please help me out with this bioinformatics project?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-31",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1v8dkr4/volcanoplot_help/",
+    "title": "Volcanoplot help",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-07-31",
+    "relevance_score": 3,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
