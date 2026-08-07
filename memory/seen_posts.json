@@ -788,5 +788,45 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1vi1kbi/where_can_i_find_public_datasets_for_pyrexia_of/",
+    "title": "where can i find public datasets for pyrexia of unknown origin PUO for computational research?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-08-07",
+    "relevance_score": 8,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/10",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1venv02/is_there_a_niche_focused_on_improving/",
+    "title": "Is there a niche focused on improving bioinformatics software usability?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-08-07",
+    "relevance_score": 8,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/11",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1vhlgm9/cant_find_the_download_link_for_hpaps_processed/",
+    "title": "Can't find the download link for HPAP's processed islet scRNA-seq (PANC-DB) — am I missing something obvious?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-08-07",
+    "relevance_score": 1,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1vezt0v/lipase_engineering_databse/",
+    "title": "Lipase Engineering Databse",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-08-07",
+    "relevance_score": 3,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
