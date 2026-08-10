@@ -828,5 +828,15 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1vklaoq/question_about_snrna_seq_cell_type_deconvolution/",
+    "title": "Question about snRNA Seq cell type deconvolution",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-08-10",
+    "relevance_score": 2,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
