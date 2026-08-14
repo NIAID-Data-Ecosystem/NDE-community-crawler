@@ -838,5 +838,25 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1vlcs3q/help/",
+    "title": "HELP!",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-08-14",
+    "relevance_score": 5,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/12",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1vmsny1/dwi_preprocessing_with_qsiprep/",
+    "title": "DWI preprocessing with QSIPrep",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-08-14",
+    "relevance_score": 4,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/13",
+    "notes": ""
   }
 ]
