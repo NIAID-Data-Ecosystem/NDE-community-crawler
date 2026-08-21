@@ -858,5 +858,25 @@
     "status": "issue_created",
     "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/13",
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1vubwap/practice_sequence_data_for_making_msas/",
+    "title": "Practice sequence data for making MSAs",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-08-21",
+    "relevance_score": 5,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/14",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1vsc5vb/roadmap_for_learning_singlecell_rnaseq_analysis/",
+    "title": "Roadmap for learning single-cell RNA-seq analysis from scratch",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-08-21",
+    "relevance_score": 5,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/15",
+    "notes": ""
   }
 ]
