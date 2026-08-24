@@ -878,5 +878,15 @@
     "status": "issue_created",
     "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/15",
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1vvpcbs/benchmarked_nfcorernaseq_across_aws_healthomics/",
+    "title": "Benchmarked nf-core/rnaseq across AWS HealthOmics, AWS Batch\n(on-demand + spot), and our own Nextflow executor — methodology and numbers",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-08-24",
+    "relevance_score": 4,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/16",
+    "notes": ""
   }
 ]
