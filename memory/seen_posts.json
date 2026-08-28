@@ -888,5 +888,15 @@
     "status": "issue_created",
     "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/16",
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1w0pfw1/keggdecoder_vs_metabolic_why_do_they_give_such/",
+    "title": "KEGGdecoder vs METABOLIC: Why do they give such different results for the same MAG dataset, and which is more reliable for functional annotation?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-08-28",
+    "relevance_score": 3,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
