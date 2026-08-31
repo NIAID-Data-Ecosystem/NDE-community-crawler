@@ -898,5 +898,15 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1w3d2ad/is_a_200250_bp_mode_an_expected_qc_criteria_for_a/",
+    "title": "Is a 200–250 bp mode an expected QC criteria for a multi-sample snATAC consensus peak set?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-08-31",
+    "relevance_score": 5,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/17",
+    "notes": ""
   }
 ]
