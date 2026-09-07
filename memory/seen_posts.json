@@ -908,5 +908,45 @@
     "status": "issue_created",
     "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/17",
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1w72nfc/background_dataset_for_shap/",
+    "title": "background dataset for SHAP",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-09-07",
+    "relevance_score": 5,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/18",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1w9mz0w/for_someone_experienced_with_16sqiime2dada2_what/",
+    "title": "For someone experienced with 16S/QIIME2/DADA2: what would be the standard/best-practice approach here?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-09-07",
+    "relevance_score": 2,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1w44vah/spatial_xenium_analysis/",
+    "title": "Spatial Xenium Analysis",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-09-07",
+    "relevance_score": 2,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1w69ndl/in_a_precarious_situation_advice_needed/",
+    "title": "In a precarious situation, advice needed",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-09-07",
+    "relevance_score": 3,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
