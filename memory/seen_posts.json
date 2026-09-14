@@ -968,5 +968,25 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1wdshc7/software_recommendations_human_virus_detection/",
+    "title": "Software recommendations?-- Human virus detection (metagenomic)",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-09-14",
+    "relevance_score": 5,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/19",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1wfjia9/help_finding_my_error_in_rosalind_learning_set/",
+    "title": "Help finding my error in Rosalind learning set.",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-09-14",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
