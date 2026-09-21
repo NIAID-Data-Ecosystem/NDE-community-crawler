@@ -988,5 +988,25 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1wiqo7s/title_microbial_proteins_detected_in_germfree/",
+    "title": "Title: Microbial proteins detected in germ-free mouse lymph nodes during proteomics —contamination or expected background?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-09-21",
+    "relevance_score": 8,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/20",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1wgpq9z/looking_for_someone_experienced_in/",
+    "title": "Looking for someone experienced in genomics/bioinformatics to help guide me through applying AlphaGenome toradiation sensitivity research",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-09-21",
+    "relevance_score": 3,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
