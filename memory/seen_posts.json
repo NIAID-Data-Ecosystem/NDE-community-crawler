@@ -1008,5 +1008,35 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1wqx2cx/solo_bioinformatician_in_a_biology_lab_how_do_i/",
+    "title": "Solo bioinformatician in a biology lab. How do I actually grow?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-09-28",
+    "relevance_score": 4,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/21",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1wqwcsh/statistical_power_with_9_samples_and_high/",
+    "title": "Statistical power with 9 samples and high inter-patient heterogeneity",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-09-28",
+    "relevance_score": 4,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/22",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1wp9dsy/tested_openfold3_boltz2_and_chai1_on_a/",
+    "title": "Tested OpenFold3, Boltz-2 and Chai-1 on a G-quadruplex and a four-wayjunction. One fold class splits them completely; the other doesn'tsplit them at all.",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-09-28",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
