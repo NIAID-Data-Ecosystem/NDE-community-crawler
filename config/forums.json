@@ -53,8 +53,26 @@
       "notes": "Large developer community. Bioinformatics+dataset tag intersection surfaces researchers seeking data access tools and APIs. Stack Exchange API v2.3, no auth required.",
       "added_by": "human",
       "date_added": "2026-06-12"
+    },
+    {
+      "name": "Reddit r/datasets",
+      "url": "https://www.reddit.com/r/datasets",
+      "api": "https://www.reddit.com/r/datasets/search.json",
+      "notes": "General dataset-finding community. Researchers frequently post requests for specific biomedical and genomic datasets. Uses same Reddit session cookie as r/bioinformatics.",
+      "added_by": "human",
+      "date_added": "2026-10-06"
     }
   ],
-  "pending": [],
+  "pending": [
+    {
+      "name": "ResearchGate Q&A",
+      "url": "https://www.researchgate.net/forum",
+      "api": null,
+      "notes": "Large researcher community with active Q&A on finding datasets and methods. No public API and aggressive bot detection — not programmatically crawlable without authentication. Monitor manually or revisit if API access becomes available.",
+      "added_by": "human",
+      "date_added": "2026-10-06",
+      "rationale": "High overlap with NIAID audience; researchers frequently ask for infectious disease data. Blocked by bot detection."
+    }
+  ],
   "blocked": []
 }

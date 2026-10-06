@@ -190,23 +190,16 @@ def crawl_galaxy():
     return posts
 
 
-def crawl_reddit():
-    session_cookie = os.getenv("REDDIT_SESSION", "").strip()
-    headers = {"Accept": "application/json"}
-    if session_cookie:
-        headers["Cookie"] = f"reddit_session={session_cookie}"
-    else:
-        print("  Reddit: no REDDIT_SESSION in .env — requests may be blocked", file=sys.stderr)
-
+def _crawl_reddit_sub(subreddit, queries, headers):
     posts = []
-    for query in SEARCH_QUERIES[:3]:
+    for query in queries:
         url = (
-            "https://www.reddit.com/r/bioinformatics/search.json"
+            f"https://www.reddit.com/r/{subreddit}/search.json"
             f"?q={urllib.parse.quote_plus(query)}&sort=new&t=week&limit=25&restrict_sr=1"
         )
         raw = fetch(url, headers)
-        if not raw or '"kind": "Listing"' not in raw and "reddit.com/login" in raw:
-            print("  Reddit: blocked — check REDDIT_SESSION cookie in .env", file=sys.stderr)
+        if not raw or ('"kind": "Listing"' not in raw and "reddit.com/login" in raw):
+            print(f"  Reddit r/{subreddit}: blocked — check REDDIT_SESSION in .env", file=sys.stderr)
             break
         try:
             data = json.loads(raw)
@@ -217,10 +210,27 @@ def crawl_reddit():
                     "url": "https://www.reddit.com" + p.get("permalink", ""),
                     "body": p.get("selftext", "")[:800],
                     "date": datetime.fromtimestamp(p.get("created_utc", 0), tz=timezone.utc).strftime("%Y-%m-%d"),
-                    "forum": "Reddit r/bioinformatics",
+                    "forum": f"Reddit r/{subreddit}",
                 })
         except Exception as e:
-            print(f"  WARN parse Reddit: {e}", file=sys.stderr)
+            print(f"  WARN parse Reddit r/{subreddit}: {e}", file=sys.stderr)
+    return posts
+
+
+def crawl_reddit():
+    session_cookie = os.getenv("REDDIT_SESSION", "").strip()
+    headers = {"Accept": "application/json"}
+    if session_cookie:
+        headers["Cookie"] = f"reddit_session={session_cookie}"
+    else:
+        print("  Reddit: no REDDIT_SESSION in .env — requests may be blocked", file=sys.stderr)
+
+    posts = []
+    posts += _crawl_reddit_sub("bioinformatics", SEARCH_QUERIES[:3], headers)
+    posts += _crawl_reddit_sub("datasets", [
+        "infectious disease", "genomics", "pathogen", "NIH", "biomedical",
+        "virus", "immunology", "clinical data",
+    ], headers)
     return posts
 
 
@@ -393,7 +403,7 @@ def main():
     run_log.append({
         "date": today,
         "run": len(run_log) + 1,
-        "forums_crawled": ["Bioinformatics Stack Exchange", "Stack Overflow (bioinformatics tag)", "Galaxy Help Forum", "Reddit r/bioinformatics"],
+        "forums_crawled": ["Bioinformatics Stack Exchange", "Stack Overflow (bioinformatics tag)", "Galaxy Help Forum", "Reddit r/bioinformatics", "Reddit r/datasets"],
         "posts_examined": len(new_posts),
         "candidates": len(candidates),
         "issues_created": issues_created,
