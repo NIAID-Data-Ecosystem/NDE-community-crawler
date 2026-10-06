@@ -1038,5 +1038,65 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1wxfarh/raw_data_for_genomics_and_transcriptomics_analysis/",
+    "title": "Raw data for Genomics and transcriptomics analysis",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-10-06",
+    "relevance_score": 8,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/23",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1wwe5w7/can_i_integrate_a_spatial_transcriptomics_dataset/",
+    "title": "Can I integrate a spatial transcriptomics dataset with a bulk RNA-seq dataset for any analysis of tumors?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-10-06",
+    "relevance_score": 7,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/24",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1wu9h74/complete_beginner_project_help/",
+    "title": "Complete Beginner Project Help",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-10-06",
+    "relevance_score": 7,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/25",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1wx9d7a/good_resourses_for_getting_into_rnaseq_data/",
+    "title": "Good resourses for getting into RNAseq data analysis?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-10-06",
+    "relevance_score": 6,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/26",
+    "notes": ""
+  },
+  {
+    "url": "https://help.galaxyproject.org/t/18410",
+    "title": "Correction: cluster issue September 25-27 2026 at http://UseGalaxy.org UseGalaxy.org http://UseGalaxy.org UseGalaxy.org ",
+    "forum": "Galaxy Help Forum",
+    "date_seen": "2026-10-06",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1wwp1wj/bulk_rna_seqmicroarray_reanalyses_value/",
+    "title": "Bulk RNA seq/Microarray Re-analyses Value",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-10-06",
+    "relevance_score": 5,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
