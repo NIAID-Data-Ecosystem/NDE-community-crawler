@@ -552,5 +552,24 @@
     "new_forums_discovered": 0,
     "errors": [],
     "notes": "Manual run via crawl.py. 6 new posts, 4 candidates, 4 issues created."
+  },
+  {
+    "date": "2026-10-06",
+    "run": 32,
+    "forums_crawled": [
+      "Bioinformatics Stack Exchange",
+      "Stack Overflow (bioinformatics tag)",
+      "Galaxy Help Forum",
+      "Biostars",
+      "Reddit r/bioinformatics",
+      "Reddit r/datasets"
+    ],
+    "posts_examined": 0,
+    "candidates": 0,
+    "issues_created": 0,
+    "threads_checked": 0,
+    "new_forums_discovered": 0,
+    "errors": [],
+    "notes": "Manual run via crawl.py. 0 new posts, 0 candidates, 0 issues created."
   }
 ]
