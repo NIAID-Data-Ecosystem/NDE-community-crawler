@@ -33,55 +33,80 @@ CONFIG = REPO / "config" / "forums.json"
 GH_REPO = "NIAID-Data-Ecosystem/NDE-community-crawler"
 GH_CLI = r"C:\Program Files\GitHub CLI\gh.exe"
 
-RELEVANCE_THRESHOLD = 4
+RELEVANCE_THRESHOLD = 6
 
-KEYWORDS_HIGH = [
-    # datasets
-    "infectious disease dataset", "pathogen dataset", "niaid", "nde",
-    "data.niaid.nih.gov", "immport", "virus dataset", "find dataset infectious",
-    "immune dataset", "covid dataset", "hiv dataset", "influenza dataset",
-    "where can i find", "looking for dataset", "public dataset", "download dataset",
-    "multi-repository", "data repository search",
+# Strong signals: post is explicitly seeking a resource
+KEYWORDS_SEEKING = [
+    "where can i find", "looking for", "where to find", "how do i find",
+    "where do i get", "is there a database", "is there a tool", "is there a resource",
+    "does anyone know of", "any recommendations for", "any suggestions for",
+    "recommend a", "looking for a tool", "looking for software", "looking for data",
+    "looking for samples", "find dataset", "find data", "find samples",
+    "access data", "download data", "get data", "obtain data",
+    "public dataset", "open dataset", "available dataset", "publicly available",
+    "data repository", "database for", "resource for",
+]
+
+# Resource types — only score if combined with a seeking signal or disease term
+KEYWORDS_RESOURCE = [
+    # data
+    "dataset", "data repository", "genomics data", "sequencing data",
+    "clinical data", "biomedical data", "omics data", "ngs data",
+    "rna-seq data", "wgs data", "proteomics data", "multi-omics",
     # samples / biospecimens
-    "biological samples", "biospecimen", "patient samples", "clinical samples",
-    "sample collection", "biobank", "where to get samples", "find samples",
-    "infectious disease samples", "pathogen samples",
-    # tools
-    "bioinformatics tool", "analysis pipeline", "workflow tool",
-    "infectious disease tool", "pathogen analysis tool", "niaid tool",
-    "find tool for", "looking for a tool", "software for infectious",
-    "computational tool infectious", "open source tool pathogen",
+    "biospecimen", "biobank", "specimen", "biological sample",
+    "patient sample", "clinical sample", "isolate", "strain collection",
+    "culture collection", "patient isolate", "clinical isolate",
+    # tools / software
+    "bioinformatics tool", "bioinformatics software", "analysis tool",
+    "computational tool", "open source tool", "web tool", "web server",
+    "command line tool", "software package", "r package", "python package",
+    # other resources
+    "protein structure", "genome sequence", "reference genome",
+    "annotation database", "ontology", "knowledgebase",
 ]
-KEYWORDS_MED = [
-    "dataset", "data repository", "find data", "public data", "genomics data",
-    "sequencing data", "clinical data", "biomedical data", "omics data",
-    "where to find", "data access", "data source", "database search",
-    "bioinformatics dataset", "ngs data",
-    # samples
-    "samples", "biospecimen", "biobank", "specimen", "isolate",
-    "culture collection", "strain collection", "patient isolate", "clinical isolate",
-    # tools
-    "tool", "pipeline", "workflow", "software", "package",
-    "analysis tool", "open source", "command line tool", "web tool",
-    "bioinformatics tool", "analysis pipeline",
-]
+
+# Disease / NIAID relevance
 KEYWORDS_DISEASE = [
-    "infectious", "pathogen", "virus", "bacteria", "fungal", "parasite",
-    "immune", "immunology", "niaid", "nih", "covid", "sars", "hiv", "influenza",
-    "malaria", "tuberculosis", "ebola", "zika", "dengue", "hepatitis",
+    "infectious disease", "infectious", "pathogen", "virus", "viral",
+    "bacteria", "bacterial", "fungal", "parasite", "parasitic",
+    "immune", "immunology", "immunological", "niaid", "nih",
+    "covid", "sars", "sars-cov", "hiv", "influenza", "flu",
+    "malaria", "tuberculosis", "tb", "ebola", "zika", "dengue",
+    "hepatitis", "hcv", "hbv", "mpox", "monkeypox",
+    "antimicrobial", "antibiotic resistance", "amr",
+]
+
+# Explicit NDE/NIAID mentions — always high value
+KEYWORDS_NDE = [
+    "niaid", "nde", "data.niaid.nih.gov", "immport",
+    "niaid data", "niaid funded", "nih data ecosystem",
+]
+
+# Methodology/career posts — penalize these (not resource-seeking)
+KEYWORDS_PENALTY = [
+    "how do i analyze", "how to analyze", "how do i run", "how to run",
+    "statistical power", "sample size", "normalization", "batch correction",
+    "differential expression", "clustering", "dimensionality reduction",
+    "machine learning model", "deep learning model", "training a model",
+    "qc criteria", "quality control", "preprocessing", "alignment",
+    "how to learn", "roadmap for", "career advice", "getting started with",
+    "solo bioinformatician", "improve my skills", "benchmarked",
+    "how do i interpret", "how to interpret", "what does this mean",
+    "is this normal", "expected result", "troubleshoot",
 ]
 
 SEARCH_QUERIES = [
-    "infectious disease dataset",
-    "find dataset NIH pathogen",
-    "where can I find infectious disease data",
-    "NIAID data repository",
-    "virus sequencing dataset",
-    "immunology dataset search",
-    "infectious disease bioinformatics tool",
-    "pathogen analysis pipeline",
+    "looking for infectious disease dataset",
+    "where can I find pathogen data",
+    "find dataset NIH NIAID",
+    "where to get virus sequencing data",
+    "looking for immunology dataset",
     "find samples infectious disease",
-    "biobank infectious disease",
+    "biobank pathogen samples",
+    "looking for bioinformatics tool infectious disease",
+    "where to find genome sequence pathogen",
+    "open dataset virus clinical",
 ]
 
 UA = "NDE-crawler/1.0 (research bot; +https://data.niaid.nih.gov)"
@@ -120,17 +145,36 @@ def seven_days_ago_epoch():
 # ── relevance scoring ─────────────────────────────────────────────────────────
 
 def score_post(title, body):
-    text = (title + " " + body).lower()
+    title_lower = title.lower()
+    text = (title_lower + " " + body.lower())
     score = 0
-    for kw in KEYWORDS_HIGH:
-        if kw in text:
-            score += 3
-    for kw in KEYWORDS_MED:
-        if kw in text:
-            score += 1
+
+    # NDE/NIAID mentions — always strongly relevant
+    nde_hits = sum(1 for kw in KEYWORDS_NDE if kw in text)
+    score += nde_hits * 4
+
+    # Resource-seeking signals (the core intent we want)
+    seeking_hits = sum(1 for kw in KEYWORDS_SEEKING if kw in text)
+    score += min(seeking_hits * 2, 6)
+
+    # Resource type mentions (only meaningful alongside seeking/disease context)
+    resource_hits = sum(1 for kw in KEYWORDS_RESOURCE if kw in text)
+    score += min(resource_hits, 4)
+
+    # Disease relevance
     disease_hits = sum(1 for kw in KEYWORDS_DISEASE if kw in text)
-    score += min(disease_hits, 3)
-    score = min(score, 10)
+    score += min(disease_hits * 2, 4)
+
+    # Penalty for methodology/career/workflow posts
+    penalty_hits = sum(1 for kw in KEYWORDS_PENALTY if kw in text)
+    score -= penalty_hits * 3
+
+    # A post with resource types but NO seeking signal and NO disease term
+    # is likely a methods post — apply extra penalty
+    if seeking_hits == 0 and disease_hits == 0 and nde_hits == 0:
+        score -= 4
+
+    score = max(0, min(score, 10))
     return score
 
 
