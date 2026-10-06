@@ -234,6 +234,47 @@ def crawl_galaxy():
     return posts
 
 
+def crawl_biostars():
+    session_cookie = os.getenv("BIOSTARS_SESSION", "").strip()
+    if not session_cookie:
+        print("  Biostars: no BIOSTARS_SESSION in .env — skipping", file=sys.stderr)
+        return []
+
+    headers = {
+        "Accept": "application/json",
+        "Cookie": f"sessionid={session_cookie}",
+    }
+    posts = []
+    seen_ids = set()
+    fromdate = seven_days_ago_epoch()
+
+    for query in SEARCH_QUERIES[:5]:
+        url = (
+            "https://www.biostars.org/api/post/?type=question&limit=25"
+            f"&q={urllib.parse.quote_plus(query)}"
+        )
+        raw = fetch(url, headers)
+        if not raw:
+            continue
+        try:
+            data = json.loads(raw)
+            for p in data.get("results", []):
+                pid = p.get("id")
+                if pid in seen_ids:
+                    continue
+                seen_ids.add(pid)
+                posts.append({
+                    "title": p.get("title", ""),
+                    "url": f"https://www.biostars.org/p/{pid}/",
+                    "body": re.sub(r"<[^>]+>", " ", p.get("content", ""))[:800],
+                    "date": p.get("creation_date", "")[:10],
+                    "forum": "Biostars",
+                })
+        except Exception as e:
+            print(f"  WARN parse Biostars: {e}", file=sys.stderr)
+    return posts
+
+
 def _crawl_reddit_sub(subreddit, queries, headers):
     posts = []
     for query in queries:
@@ -381,6 +422,11 @@ def main():
     all_posts += gal_posts
     print(f"  +{len(gal_posts)} posts")
 
+    print("Crawling Biostars...")
+    bio_posts = crawl_biostars()
+    all_posts += bio_posts
+    print(f"  +{len(bio_posts)} posts")
+
     print("Crawling Reddit r/bioinformatics...")
     reddit_posts = crawl_reddit()
     all_posts += reddit_posts
@@ -447,7 +493,7 @@ def main():
     run_log.append({
         "date": today,
         "run": len(run_log) + 1,
-        "forums_crawled": ["Bioinformatics Stack Exchange", "Stack Overflow (bioinformatics tag)", "Galaxy Help Forum", "Reddit r/bioinformatics", "Reddit r/datasets"],
+        "forums_crawled": ["Bioinformatics Stack Exchange", "Stack Overflow (bioinformatics tag)", "Galaxy Help Forum", "Biostars", "Reddit r/bioinformatics", "Reddit r/datasets"],
         "posts_examined": len(new_posts),
         "candidates": len(candidates),
         "issues_created": issues_created,
