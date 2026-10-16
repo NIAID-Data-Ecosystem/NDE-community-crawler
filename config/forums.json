@@ -55,6 +55,14 @@
       "date_added": "2026-06-12"
     },
     {
+      "name": "Bluesky",
+      "url": "https://bsky.app",
+      "api": "https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts",
+      "notes": "Growing academic/research social network. Public search API requires no authentication. Searches hashtags: bioinformatics, opendata, genomics, NIAID, infectious.",
+      "added_by": "human",
+      "date_added": "2026-10-16"
+    },
+    {
       "name": "Mastodon (fosstodon.org)",
       "url": "https://fosstodon.org",
       "api": "https://fosstodon.org/api/v1/timelines/tag/:hashtag",
