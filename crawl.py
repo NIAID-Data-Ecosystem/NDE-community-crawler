@@ -234,6 +234,42 @@ def crawl_galaxy():
     return posts
 
 
+def crawl_mastodon():
+    instances = ["fosstodon.org", "genomic.social"]
+    hashtags = ["bioinformatics", "opendata", "genomics", "NIAID", "infectious"]
+    posts = []
+    seen_urls = set()
+
+    for instance in instances:
+        for tag in hashtags:
+            url = f"https://{instance}/api/v1/timelines/tag/{tag}?limit=40"
+            raw = fetch(url, {"Accept": "application/json"})
+            if not raw:
+                continue
+            try:
+                items = json.loads(raw)
+                for item in items:
+                    post_url = item.get("url", "")
+                    if post_url in seen_urls:
+                        continue
+                    seen_urls.add(post_url)
+                    content = re.sub(r"<[^>]+>", " ", item.get("content", ""))
+                    created = item.get("created_at", "")[:10]
+                    account = item.get("account", {}).get("acct", "")
+                    posts.append({
+                        "title": content[:120].strip(),
+                        "url": post_url,
+                        "body": content[:800],
+                        "date": created,
+                        "forum": f"Mastodon ({instance})",
+                        "author": account,
+                    })
+            except Exception as e:
+                print(f"  WARN parse Mastodon {instance} #{tag}: {e}", file=sys.stderr)
+
+    return posts
+
+
 def crawl_biostars():
     session_cookie = os.getenv("BIOSTARS_SESSION", "").strip()
     if not session_cookie:
@@ -422,6 +458,11 @@ def main():
     all_posts += gal_posts
     print(f"  +{len(gal_posts)} posts")
 
+    print("Crawling Mastodon (fosstodon.org, genomic.social)...")
+    mast_posts = crawl_mastodon()
+    all_posts += mast_posts
+    print(f"  +{len(mast_posts)} posts")
+
     print("Crawling Biostars...")
     bio_posts = crawl_biostars()
     all_posts += bio_posts
@@ -493,7 +534,7 @@ def main():
     run_log.append({
         "date": today,
         "run": len(run_log) + 1,
-        "forums_crawled": ["Bioinformatics Stack Exchange", "Stack Overflow (bioinformatics tag)", "Galaxy Help Forum", "Biostars", "Reddit r/bioinformatics", "Reddit r/datasets"],
+        "forums_crawled": ["Bioinformatics Stack Exchange", "Stack Overflow (bioinformatics tag)", "Galaxy Help Forum", "Biostars", "Mastodon (fosstodon.org)", "Mastodon (genomic.social)", "Reddit r/bioinformatics", "Reddit r/datasets"],
         "posts_examined": len(new_posts),
         "candidates": len(candidates),
         "issues_created": issues_created,
