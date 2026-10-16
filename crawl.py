@@ -144,20 +144,28 @@ def seven_days_ago_epoch():
 
 # ── relevance scoring ─────────────────────────────────────────────────────────
 
-def score_post(title, body):
+def score_post(title, body, forum=""):
     title_lower = title.lower()
     text = (title_lower + " " + body.lower())
     score = 0
 
-    # NDE/NIAID mentions — always strongly relevant
-    nde_hits = sum(1 for kw in KEYWORDS_NDE if kw in text)
-    score += nde_hits * 4
-
-    # Resource-seeking signals (the core intent we want)
+    # Resource-seeking signals — REQUIRED for social media posts
     seeking_hits = sum(1 for kw in KEYWORDS_SEEKING if kw in text)
+
+    # Social media posts (Mastodon, Bluesky) must have a seeking signal to score at all
+    is_social = any(s in forum.lower() for s in ["mastodon", "bluesky", "reddit"])
+    if is_social and seeking_hits == 0:
+        return 0
+
+    # NDE/NIAID mentions — strongly relevant only when paired with seeking intent
+    nde_hits = sum(1 for kw in KEYWORDS_NDE if kw in text)
+    if seeking_hits > 0:
+        score += nde_hits * 4
+
+    # Resource-seeking signals
     score += min(seeking_hits * 2, 6)
 
-    # Resource type mentions (only meaningful alongside seeking/disease context)
+    # Resource type mentions
     resource_hits = sum(1 for kw in KEYWORDS_RESOURCE if kw in text)
     score += min(resource_hits, 4)
 
@@ -165,12 +173,11 @@ def score_post(title, body):
     disease_hits = sum(1 for kw in KEYWORDS_DISEASE if kw in text)
     score += min(disease_hits * 2, 4)
 
-    # Penalty for methodology/career/workflow posts
+    # Penalty for methodology/career/news/political posts
     penalty_hits = sum(1 for kw in KEYWORDS_PENALTY if kw in text)
     score -= penalty_hits * 3
 
-    # A post with resource types but NO seeking signal and NO disease term
-    # is likely a methods post — apply extra penalty
+    # No seeking signal and no disease context — likely a methods or news post
     if seeking_hits == 0 and disease_hits == 0 and nde_hits == 0:
         score -= 4
 
@@ -523,7 +530,7 @@ def main():
     candidates = []
     skipped = []
     for p in new_posts:
-        p["score"] = score_post(p["title"], p["body"])
+        p["score"] = score_post(p["title"], p["body"], p.get("forum", ""))
         if p["score"] >= RELEVANCE_THRESHOLD:
             candidates.append(p)
         else:
