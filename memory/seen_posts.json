@@ -3798,5 +3798,15 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1x9pz48/getting_sequences_from_ncbi_nucleotide_is_there_a/",
+    "title": "Getting sequences from NCBI Nucleotide; is there a better way?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-10-19",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
