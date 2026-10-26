@@ -3838,5 +3838,15 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1xfsb79/milk_and_bonsai_practical_value_beyond_singlecell/",
+    "title": "MILK and Bonsai: practical value beyond single-cell atlases?",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-10-26",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
