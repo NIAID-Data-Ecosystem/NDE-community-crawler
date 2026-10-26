@@ -3808,5 +3808,35 @@
     "status": "skipped",
     "issue_url": null,
     "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1xawzkc/looking_for_an_arabidopsis_thaliana_dataset/",
+    "title": "Looking for an Arabidopsis thaliana dataset linking genotype, phenotype and environmental conditions",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-10-26",
+    "relevance_score": 10,
+    "status": "issue_created",
+    "issue_url": "https://github.com/NIAID-Data-Ecosystem/NDE-community-crawler/issues/90",
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1xdcpbt/title_need_help_downloading_mimiciv_v31_files/",
+    "title": "Title: Need help downloading MIMIC-IV v3.1 files from PhysioNet — repeated download failures",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-10-26",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
+  },
+  {
+    "url": "https://www.reddit.com/r/bioinformatics/comments/1xbv8at/ngs_variants_analysis_in_cancer/",
+    "title": "NGS Variants analysis in cancer",
+    "forum": "Reddit r/bioinformatics",
+    "date_seen": "2026-10-26",
+    "relevance_score": 0,
+    "status": "skipped",
+    "issue_url": null,
+    "notes": ""
   }
 ]
